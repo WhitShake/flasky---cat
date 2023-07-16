@@ -14,8 +14,8 @@ def create_cat():
         db.session.add(new_cat)
         db.session.commit()
 
-        message = f"Cat {new_cat.name} successfully created"
-        return make_response(message, 201)
+        # message = f"Cat {new_cat.name} successfully created"
+        return make_response(new_cat.to_dict(), 201)
     
     except KeyError as e:
         abort(make_response({"message": f"missing required value: {e}"}, 400))
